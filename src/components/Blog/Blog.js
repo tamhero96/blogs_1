@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { idBlog } from "../../redux/actions/blogs";
 import {
@@ -7,19 +7,14 @@ import {
 
 function Blog() {
   const params = useParams()
-  const [isLoading, setIsLoading] = useState(false);
-
+  const getIdBlog = useSelector((state) => state.blogs.idBlogs)
+  const isLoading = useSelector((state) => state.blogs.setLoading)
   const dispatch = useDispatch()
-  
   useEffect(() => {
-    setIsLoading(true);
     if (params.id) {
-      
       dispatch(idBlog(params.id))
     }
-    setIsLoading(false);
-  }, [params.id]);
-  const getIdBlog = useSelector((state) => state.blogs.idBlogs)
+  }, []);
   return (
     <div>
       {isLoading ? (
@@ -42,26 +37,9 @@ function Blog() {
               )
             })}
           </div>
-          <Link to="/">Back HomePage</Link>
         </div>
       )}
-      {/* <div>
-        {getIdBlog.map((value, id) => {
-          return (
-            <div key={id} className="article">
-              <h1>{value.title}</h1>
-              <main>
-                <div className="article">
-                  <div className="content">
-                    {value.body}
-                  </div>
-                </div>
-              </main>
-            </div>
-          )
-        })}
-      </div>
-      <Link to="/">Back HomePage</Link> */}
+      <Link to="/">Back HomePage</Link>
     </div>
   );
 }
