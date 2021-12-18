@@ -6,7 +6,6 @@ import {Provider} from 'react-redux'
 import {rootReducer} from './redux/reducers/index'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-// gia tri khoi tao
 
 const store = createStore(
   rootReducer,
