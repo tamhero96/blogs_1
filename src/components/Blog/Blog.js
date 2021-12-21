@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { idBlog } from "../../redux/actions/blogs";
-import {
-  Link, useParams
-} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 function Blog() {
   const params = useParams()
@@ -14,7 +12,8 @@ function Blog() {
     if (params.id) {
       dispatch(idBlog(params.id))
     }
-  }, []);
+  },[]);
+  console.log(getIdBlog)
   return (
     <div>
       {isLoading ? (
@@ -29,7 +28,7 @@ function Blog() {
                   <main>
                     <div className="article">
                       <div className="content">
-                        {value.body}
+                        {value.content}
                       </div>
                     </div>
                   </main>

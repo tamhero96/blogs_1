@@ -4,29 +4,29 @@ import { allBlogs } from "../../redux/actions/blogs";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const getallBlogs = useSelector((state) => state.blogs.Blogs)
-  const dispatch = useDispatch()
+  const getallBlogs = useSelector((state) => state.blogs.Blogs);
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(allBlogs())
   }, [dispatch]);
   return (
-    <div style={main}>
-      {getallBlogs.map((value, id) => {
-        return (
-          <div key={id} className="article">
-            <div className="title">
-              <Link to={`/blog/${value.id}`}>{value.title}</Link>
+      <div>
+        {getallBlogs.map((value,id) => {
+          return (
+            <div key={id}>
+              <div>{id+1}</div>
+              <Link to={`blog/${value._id}`}>{value.title}</Link>
+              <span> </span>
+              <Link to={`user/${value.author}`}>{value.author}</Link>
             </div>
-            <div className="subtitle">{value.body}</div>
-          </div>
-        )
-      })}
-    </div>
+          )
+        })}
+      </div>    
   )
 }
 
 export default React.memo(Home)
 
-const main = {
-  margin: '20px 15px'
-}
+// const main = {
+//   margin: '0px 30px'
+// }

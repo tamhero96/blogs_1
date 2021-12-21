@@ -8,7 +8,7 @@ export const blogs = (state = initialState, action) => {
     case 'ALL_BLOGS':
       return {
         ...state,
-        Blogs: [...action.payload]
+        Blogs: action.payload
       }
     case 'ID_BLOG':
       return {
@@ -17,11 +17,6 @@ export const blogs = (state = initialState, action) => {
         setLoading: action.payload.setLoading
       }
     case 'LOADING_ID_BLOG':
-      return {
-        ...state,
-        setLoading: action.payload
-      }
-    case 'NLOADING_ID_BLOG':
       return {
         ...state,
         setLoading: action.payload

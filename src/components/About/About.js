@@ -1,9 +1,10 @@
 const About = () => {
   return (
       <div>
-        Hello
+        Tôi đây
       </div>
   )
 }
 
 export default About;
+
