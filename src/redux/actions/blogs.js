@@ -1,31 +1,29 @@
-import api from './api'
+import axios from 'axios'
+const baseUrl = 'http://localhost:4000/api/v1/blogs'
 
-export const allBlogs = () => dispatch => {
-  console.log(api.blogs().allBlogs())
-  api.blogs().allBlogs()
-    .then(res => {
-      dispatch({
-        type: 'ALL_BLOGS',
-        payload: res.data.blogs,
-      })
-    })
-    .catch(err => console.log(err))
+
+const getBlogsSuccess = (blogs) => {
+  return {
+    type: 'GET_BLOGS',
+    payload: {
+      blogs
+    },
+  }
 }
 
-export const idBlog = (id) => dispatch => {
-  dispatch({
-    type: 'LOADING_ID_BLOG',
-    payload: true,
-  })
-  api.blogs().idBlog(id)
-    .then(res => {
-      dispatch({
-        type: 'ID_BLOG',
-        payload: {
-          data: res.data.blogs,
-          setLoading: false,
-        },
-      })
+export const getAllBlogs = () => {
+  return function (dispatch) {
+    axios({
+      method: 'get',
+      url: '/',
+      baseURL: baseUrl,
     })
-    .catch(err => console.log(err))
+    .then((res) => {
+      const data = res.data.blogs
+      dispatch(getBlogsSuccess(data))
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
 }

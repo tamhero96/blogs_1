@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch} from 'react-redux';
-import { idBlog } from "../../redux/actions/blogs";
-import {Link, useParams} from 'react-router-dom';
+// import React, { useEffect } from 'react';
+// import { useSelector, useDispatch} from 'react-redux';
+// import { idBlog } from "../../redux/actions/blogs";
+// import {Link, useParams} from 'react-router-dom';
 
 function Blog() {
-  const params = useParams()
-  const getIdBlog = useSelector((state) => state.blogs.idBlogs)
-  const isLoading = useSelector((state) => state.blogs.setLoading)
-  const dispatch = useDispatch()
-  useEffect(() => {
-    if (params.id) {
-      dispatch(idBlog(params.id))
-    }
-  },[]);
-  console.log(getIdBlog)
+  // const params = useParams()
+  // const getIdBlog = useSelector((state) => state.blogs.idBlogs)
+  // const isLoading = useSelector((state) => state.blogs.setLoading)
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   if (params.id) {
+  //     dispatch(idBlog(params.id))
+  //   }
+  // },[])
   return (
     <div>
-      {isLoading ? (
+      hello
+      {/* {isLoading ? (
         <p>Loading ...</p>
       ) : (
         <div>
@@ -38,7 +38,7 @@ function Blog() {
           </div>
         </div>
       )}
-      <Link to="/">Back HomePage</Link>
+      <Link to="/">Back HomePage</Link> */}
     </div>
   );
 }

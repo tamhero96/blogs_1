@@ -2,7 +2,6 @@
 const Forgot = () => {
   return (
     <div>
-      <br />
       <b>Reset your password</b>
       <form>
         <table>

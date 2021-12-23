@@ -3,16 +3,9 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import {Provider} from 'react-redux'
-import {rootReducer} from './redux/reducers/index'
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
+import makeStore from './redux/reducers/index'
 
-const store = createStore(
-  rootReducer,
-  compose (
-    applyMiddleware(thunk)
-  )
-)
+const store = makeStore();
 
 ReactDOM.render(
   <Provider store={store}>

@@ -7,8 +7,10 @@ function Navbar() {
           | <Link to="/">home </Link>
           {/* | <Link to="/series">series </Link>
           | <Link to="/tags/">tags </Link> */}
-          | <Link to="/about/">about me</Link>
-          | <Link to="/login/">login</Link>
+          | <Link to="/about">about me </Link>
+          | <Link to="/login">login </Link>
+          | <Link to="/submit">submit </Link>
+          | <Link to="/logout">logout</Link>
         </div>
       </div>
     )
