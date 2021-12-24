@@ -4,7 +4,7 @@ import { getAllBlogs } from "../../redux/actions/blogs";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const allBlogs = useSelector((state) => state.getAllBlogs.allblogs);
+  const allBlogs = useSelector((state) => state.handleBlog.allblogs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllBlogs())

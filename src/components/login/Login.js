@@ -7,24 +7,24 @@ const Login = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch()
   // sign up
-  const [userCreate, setUserCreate] = useState('')
-  const [passCreate, setPassCreate] = useState('')
-  const handleUsernameChange = (event) => {
-    setUserCreate(event.target.value)
+  const [username, setusername] = useState('')
+  const [password, setpassword] = useState('')
+  const handleusernameChange = (event) => {
+    setusername(event.target.value)
   }
   const handlePasswordChange = (event) => {
-    setPassCreate(event.target.value)
+    setpassword(event.target.value)
   }
   const handleSignUpClick = (event) => {
     event.preventDefault()
-    dispatch(signUp({userCreate,passCreate}))
+    dispatch(signUp({username,password}))
     // chuyen huong sau khi click
     navigate('/')
   }
   // login
   const [userLogin, setUserLogin] = useState('')
   const [passLogin, setPassLogin] = useState('')
-  const handleUsernameLogin = (event) => {
+  const handleusernameLogin = (event) => {
     setUserLogin(event.target.value)
   }
   const handlePasswordLogin = (event) => {
@@ -32,7 +32,7 @@ const Login = () => {
   }
   const handleSignInClick = (event) => {
     event.preventDefault()
-    dispatch(signIn({userCreate:userLogin,passCreate:passLogin}))
+    dispatch(signIn({username:userLogin,password:passLogin}))
     // chuyen huong sau khi click
     navigate('/')
   }
@@ -49,7 +49,7 @@ const Login = () => {
                 <input 
                   type="text" 
                   value={userLogin}
-                  onChange={handleUsernameLogin} />
+                  onChange={handleusernameLogin} />
               </td>
             </tr>
             <tr>
@@ -76,8 +76,8 @@ const Login = () => {
               <td>
                 <input 
                   type="text" 
-                  value={userCreate}
-                  onChange={handleUsernameChange} 
+                  value={username}
+                  onChange={handleusernameChange} 
                 />
               </td>
             </tr>
@@ -86,7 +86,7 @@ const Login = () => {
               <td>
                 <input 
                   type="password" 
-                  value={passCreate}
+                  value={password}
                   onChange={handlePasswordChange} 
                 />
               </td>

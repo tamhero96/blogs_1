@@ -1,4 +1,4 @@
-import {Navigate } from "react-router"
+import {Navigate} from "react-router"
 
 export const PrivateRoute = ({children}) => {
     // kiem tra co token ko // kiem tra co tai khoan dang nhap khong

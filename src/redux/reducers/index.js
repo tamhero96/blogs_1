@@ -2,11 +2,11 @@ import { applyMiddleware, createStore, compose } from "redux"
 import { combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-import getAllBlogs from './blogs';
+import handleBlog from './blogs';
 import authenticationReducer from './users';
 
 const rootReducer = combineReducers({
-  getAllBlogs,
+  handleBlog,
   authenticationReducer,
 })
 
